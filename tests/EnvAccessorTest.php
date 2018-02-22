@@ -72,4 +72,11 @@ class EnvAccessorTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($ts->get('false'));
         $this->assertSame('false', $ts->get('false'));
     }
+
+    public function testReturnsArrayForArray()
+    {
+        $ts = new EnvAccessor(__DIR__);
+        $this->assertNotNull($ts->getArray('array', 'default'));
+        $this->assertSame(["value1", "value2", "value3"], $ts->getArray('array', 'default'));
+    }
 }
