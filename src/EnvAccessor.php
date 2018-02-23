@@ -13,15 +13,17 @@ class EnvAccessor
     private $overload;
     private $loaded;
     private $csvDelimiter;
+    private $csvEnclosure;
     /** @var bool */
     private $localOnly;
 
-    public function __construct($directory, $fileName = '.env', $overload = false, $csvDelimiter = ',', $localOnly = false)
+    public function __construct($directory, $fileName = '.env', $overload = false, $csvDelimiter = ',', $csvEnclosure = '\'', $localOnly = false)
     {
         $this->directory = $directory;
         $this->fileName = $fileName;
         $this->overload = $overload;
         $this->csvDelimiter = $csvDelimiter;
+        $this->csvEnclosure = $csvEnclosure;
         $this->localOnly = $localOnly;
     }
 
@@ -44,7 +46,7 @@ class EnvAccessor
     {
         $key = $this->get($key, $default);
 
-        return str_getcsv($key, $this->csvDelimiter);
+        return str_getcsv($key, $this->csvDelimiter, $this->csvEnclosure);
     }
 
     private function load()

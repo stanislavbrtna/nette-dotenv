@@ -11,6 +11,7 @@ class DotEnvExtension extends CompilerExtension
         'fileName' => '.env',
         'overload' => false,
         'csvDelimiter' => ',',
+        'csvEnclosure' => '\'',
         'localOnly' => false,
         'prefix' => false,
         'class' => '\wodCZ\NetteDotenv\EnvAccessor'
@@ -30,6 +31,7 @@ class DotEnvExtension extends CompilerExtension
                 'fileName' => $config['fileName'],
                 'overload' => $config['overload'],
                 'csvDelimiter' => $config['csvDelimiter'],
+                'csvEnclosure' => $config['csvEnclosure'],
                 'localOnly' => $config['localOnly'],
             ));
     }
