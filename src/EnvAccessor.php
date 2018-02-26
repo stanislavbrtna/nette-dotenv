@@ -17,8 +17,14 @@ class EnvAccessor
     /** @var bool */
     private $localOnly;
 
-    public function __construct($directory, $fileName = '.env', $overload = false, $csvDelimiter = ',', $csvEnclosure = '\'', $localOnly = false)
-    {
+    public function __construct(
+        $directory,
+        $fileName = '.env',
+        $overload = false,
+        $csvDelimiter = ',',
+        $csvEnclosure = '\'',
+        $localOnly = false
+    ) {
         $this->directory = $directory;
         $this->fileName = $fileName;
         $this->overload = $overload;
